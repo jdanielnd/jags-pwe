@@ -13,15 +13,15 @@ rm(list=ls())
 
 # necessary libs
 library(rjags)
-load.module("bernoulli")
+load.module("exponential")
 
 # model
 mf <- textConnection("model {
   for (i in 1:N) 
   {
-    x[i] ~ dbern2(alpha)
+    x[i] ~ dexp2(alpha)
   }
-  alpha ~ dbeta(.1,.1)
+  alpha ~ dgamma(0.5,0.5)
 }")
 
 # parameters to observe
@@ -36,7 +36,7 @@ params <- c("alpha")
 # RT <- abs(rnorm(500, 5))
 # x <- RT
 # dat <- list(x=x, N=N, a=a, theta=theta, beta=beta)
-x <- rbinom(100, 1, 0.9)
+x <- rexp(100, 10)
 N <- length(x)
 dat <- list(x=x, N=N)
 

@@ -5,6 +5,6 @@ expdist_la_CPPFLAGS = -I$(top_srcdir)/src \
 
 expdist_la_LDFLAGS = -no-undefined -module -avoid-version
 
-expdist_la_SOURCES = DBern.cc
+expdist_la_SOURCES = DExp.cc
 
 noinst_HEADERS = DExp.h

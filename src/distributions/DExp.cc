@@ -38,6 +38,7 @@ double DExp::typicalValue(vector<double const *> const &parameters,
          double const *lbound, double const *ubound) const
 {
     return 1/RATE(parameters);
+}
 
 bool DExp::isDiscreteValued(vector<bool> const &mask) const
 {
