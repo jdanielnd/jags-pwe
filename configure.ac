@@ -2,14 +2,14 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
 
-AC_INIT([JAGS-EXP],[0.1],[jdanielnd@gmail.com],[JAGS-EXP-MODULE])
+AC_INIT([JAGS-PWEXP],[0.1],[jdanielnd@gmail.com],[JAGS-PWEXP-MODULE])
 JAGS_MAJOR=3
 JAGS_MINOR=0
 AC_SUBST(JAGS_MAJOR)
 AC_SUBST(JAGS_MINOR)
 
 AC_CANONICAL_HOST
-AC_CONFIG_SRCDIR([src/distributions/DExp.cc])
+AC_CONFIG_SRCDIR([src/distributions/DPwexp.cc])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE([subdir-objects])

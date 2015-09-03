@@ -1,20 +1,20 @@
 SUBDIRS = distributions
 
-jagsmod_LTLIBRARIES = exponential.la
+jagsmod_LTLIBRARIES = pwexponential.la
 
-exponential_la_SOURCES = exponential.cc
+pwexponential_la_SOURCES = pwexponential.cc
 
-exponential_la_CPPFLAGS = -I$(includedir)/JAGS
+pwexponential_la_CPPFLAGS = -I$(includedir)/JAGS
 
-exponential_la_LIBADD = distributions/expdist.la
+pwexponential_la_LIBADD = distributions/pwexpdist.la
 
 if WINDOWS
-exponential_la_LIBADD += -ljags-$(JAGS_MAJOR) -ljrmath-0
+pwexponential_la_LIBADD += -ljags-$(JAGS_MAJOR) -ljrmath-0
 else
-exponential_la_LIBADD += -ljags -ljrmath
+pwexponential_la_LIBADD += -ljags -ljrmath
 endif
 
-exponential_la_LDFLAGS = -module -avoid-version
+pwexponential_la_LDFLAGS = -module -avoid-version
 if WINDOWS
-exponential_la_LDFLAGS += -no-undefined
+pwexponential_la_LDFLAGS += -no-undefined
 endif

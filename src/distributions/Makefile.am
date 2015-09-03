@@ -1,10 +1,10 @@
-noinst_LTLIBRARIES = expdist.la
+noinst_LTLIBRARIES = pwexpdist.la
 
-expdist_la_CPPFLAGS = -I$(top_srcdir)/src \
+pwexpdist_la_CPPFLAGS = -I$(top_srcdir)/src \
 												 -I$(includedir)/JAGS
 
-expdist_la_LDFLAGS = -no-undefined -module -avoid-version
+pwexpdist_la_LDFLAGS = -no-undefined -module -avoid-version
 
-expdist_la_SOURCES = DExp.cc
+pwexpdist_la_SOURCES = DPwexp.cc
 
-noinst_HEADERS = DExp.h
+noinst_HEADERS = DPwexp.h
