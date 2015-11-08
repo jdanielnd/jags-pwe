@@ -38,7 +38,7 @@ bool DPwexp::checkParameterValue (vector<double const *> const &parameters,
 double DPwexp::logDensity(double const *x, unsigned int length, PDFType type,
                           vector<double const *> const &parameters,
                           vector<unsigned int> const &lengths,
-                          double const *lower, double const *upper) const 
+                          double const *lower, double const *upper) const
 {
     double const * f = parameters[0];
     double const * t = parameters[1];
@@ -48,12 +48,6 @@ double DPwexp::logDensity(double const *x, unsigned int length, PDFType type,
     vector<double> dif(size - 1);
     for(int i=0; i < dif.size(); ++i) {
       dif[i] = t[i+1] - t[i];
-    }
-
-    vector<double> ref(dif.size());
-    ref[0] = f[0]*dif[0];
-    for(int i=1; i < ref.size(); ++i) {
-      ref[i] = ref[i-1] + f[i]*dif[i];
     }
 
     int n = size;

@@ -1,4 +1,5 @@
 SUBDIRS = distributions
+SUBDIRS += functions
 
 jagsmod_LTLIBRARIES = pwexponential.la
 
@@ -7,6 +8,8 @@ pwexponential_la_SOURCES = pwexponential.cc
 pwexponential_la_CPPFLAGS = -I$(includedir)/JAGS
 
 pwexponential_la_LIBADD = distributions/pwexpdist.la
+pwexponential_la_LIBADD += functions/ppwexp.la
+
 
 if WINDOWS
 pwexponential_la_LIBADD += -ljags-$(JAGS_MAJOR) -ljrmath-0
