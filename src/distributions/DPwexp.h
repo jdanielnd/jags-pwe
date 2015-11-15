@@ -2,6 +2,7 @@
 #define DPWEXP_H_
 #include <distribution/VectorDist.h>
 
+namespace jags{
 namespace pwexponential {
 
 class DPwexp : public VectorDist
@@ -34,5 +35,6 @@ class DPwexp : public VectorDist
      std::vector<unsigned int> const &lengths) const;
 };
 
-}
+}}
+
 #endif /* DPWEXP_H_ */

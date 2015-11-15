@@ -1,7 +1,8 @@
 #ifndef FUNC_PPWEXP_H_
 #define FUNC_PPWEXP_H_
-#include <function/VectorFunction.h>
+#include <function/ScalarVectorFunction.h>
 
+namespace jags{
 namespace pwexponential {
 
     /**
@@ -12,17 +13,16 @@ namespace pwexponential {
      * y <- mean(x[])
      * </pre>
      */
-    class PPwexp : public VectorFunction
+    class PPwexp : public ScalarVectorFunction
     {
         public:
           PPwexp ();
-          void evaluate(double *x, std::vector<double const *> const &args,
-              std::vector<unsigned int> const &dims) const;
-          bool checkParameterLength (std::vector<unsigned int> const &len) const;
+          double scalarEval(std::vector<double const *> const &args,
+                          std::vector<unsigned int> const &dims) const;
           bool isScale(std::vector<bool> const &mask,
-                     std::vector<bool> const &fix) const;
+                       std::vector<bool> const &fix) const;
     };
 
-}
+}}
 
 #endif /* FUNC_PPWEXP_H_ */

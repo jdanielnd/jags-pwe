@@ -11,6 +11,7 @@ using std::vector;
 // #define RATE(par) (*par[0])
 // #define T(par) (*par[1])
 
+namespace jags{
 namespace pwexponential {
 
 DPwexp::DPwexp()
@@ -20,18 +21,6 @@ DPwexp::DPwexp()
 bool DPwexp::checkParameterValue (vector<double const *> const &parameters,
                           vector<unsigned int> const &lengths) const
 {
-    // ok
-    // vector<double const *> *rate = parameters[0];
-    // for(int i=0; i < rate.size(); ++i) {
-    //     if(rate[i] < 0) return false;
-    // }
-
-    // TODO: pontos de corte ordenados
-    // vector<double const *> *t = parameters[1];
-    // for(int i=0; i < t.size(); ++i) {
-    //     if(t[i] < 0) return false;
-    // }
-
     return true;
 }
 
@@ -152,4 +141,4 @@ void DPwexp::support(double *lower, double *upper, unsigned int length,
   }
 }
 
-}
+}}

@@ -1,19 +1,21 @@
 #include <config.h>
 #include "PPwexp.h"
+#include <cmath>
 
 using std::vector;
 
+namespace jags{
 namespace pwexponential {
 
     PPwexp::PPwexp ()
-      : VectorFunction ("ppwexp", 3)
+      : ScalarVectorFunction ("ppwexp", 3)
     {
     }
 
-    void PPwexp::evaluate (double *x, std::vector<double const *> const &args,
-        std::vector<unsigned int> const &dims) const
+    double PPwexp::scalarEval (std::vector<double const *> const &args,
+                               std::vector<unsigned int> const &dims) const
     {
-      double const * y = args[0];
+      double const * x = args[0];
       double const * f = args[1];
       double const * t = args[2];
 
@@ -26,7 +28,7 @@ namespace pwexponential {
 
       int n = size;
       for(int i=0; i < size; ++i) {
-          if(*x <= t[i]) {
+          if(x[0] <= t[i]) {
             n = i;
             break;
           }
@@ -39,12 +41,9 @@ namespace pwexponential {
           }
       }
 
-      *x = summ + f[n-1] * (y[0] - t[n-1]);
-    }
+      double st = summ + f[n-1] * (x[0] - t[n-1]);
 
-    bool PPwexp::checkParameterLength(std::vector<unsigned int> const &len) const
-    {
-      return true;
+      return 1 - exp(-st);
     }
 
     bool PPwexp::isScale(vector<bool> const &mask, vector<bool> const &fix) const
@@ -52,4 +51,4 @@ namespace pwexponential {
       return true;
     }
 
-}
+}}

@@ -1,7 +1,8 @@
-#include <Module.h> // JAGS module base class
+#include <module/Module.h> // JAGS module base class
 #include <distributions/DPwexp.h> // Piece-wise Exponential distribution class
 #include <functions/PPwexp.h> // Piece-wise Exponential distribution class
 
+namespace jags{
 namespace pwexponential { // module namespace
 
 class PWEXPModule : public Module { // module class
@@ -27,6 +28,6 @@ PWEXPModule::~PWEXPModule() {
   } // deletes instantiated distribution objects
 }
 
-}
+}}
 
-pwexponential::PWEXPModule _pwexponential_module;
+jags::pwexponential::PWEXPModule _pwexponential_module;
