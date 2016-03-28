@@ -37,7 +37,11 @@ namespace pwexponential {
       double summ = 0;
       if(n > 0) {
           for(int i=0; i < (n-1); ++i) {
-            summ = summ + f[i] * dif[i];
+            // Why this sum uses t[i-1] insteal of dif[i] ?
+            // Based on http://www.ime.unicamp.br/sinape/sites/default/files/DemarquiSinape2010.pdf
+            // I changed it to t[i-1] and it worked, but the logDensity calculations
+            // uses the dif[i]. Not sure, why!
+            summ = summ + f[i] * t[i-1];
           }
       }
 

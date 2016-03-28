@@ -2,7 +2,7 @@ dnl Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.68])
 
-AC_INIT([JAGS-PWEXP],[0.1],[jdanielnd@gmail.com],[JAGS-PWEXP-MODULE])
+AC_INIT([JAGS-PWEXP],[0.2],[jdanielnd@gmail.com],[JAGS-PWEXP-MODULE])
 JAGS_MAJOR=4
 JAGS_MINOR=0
 AC_SUBST(JAGS_MAJOR)
