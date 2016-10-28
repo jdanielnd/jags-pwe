@@ -1,17 +1,17 @@
-#ifndef FUNC_PPWEXP_H_
-#define FUNC_PPWEXP_H_
+#ifndef FUNC_DDPWEXP_H_
+#define FUNC_DDPWEXP_H_
 #include <function/ScalarVectorFunction.h>
 
 namespace jags{
 namespace pwexponential {
 
     /**
-     * @short Probability function of Piece-wise Exponential
+     * @short Density function of Piece-wise Exponential
      */
-    class PPwexp : public ScalarVectorFunction
+    class DDPwexp : public ScalarVectorFunction
     {
         public:
-          PPwexp ();
+          DDPwexp ();
           double scalarEval(std::vector<double const *> const &args,
                           std::vector<unsigned int> const &dims) const;
           bool isScale(std::vector<bool> const &mask,
@@ -20,4 +20,4 @@ namespace pwexponential {
 
 }}
 
-#endif /* FUNC_PPWEXP_H_ */
+#endif /* FUNC_DDPWEXP_H_ */

@@ -1,6 +1,8 @@
 #include <module/Module.h> // JAGS module base class
 #include <distributions/DPwexp.h> // Piece-wise Exponential distribution class
 #include <functions/PPwexp.h> // Piece-wise Exponential distribution class
+#include <functions/DDPwexp.h> // Piece-wise Exponential distribution class
+#include <functions/QPwexp.h> // Piece-wise Exponential distribution class
 
 namespace jags{
 namespace pwexponential { // module namespace
@@ -15,6 +17,8 @@ PWEXPModule::PWEXPModule() : Module("pwexponential") {
   insert(new DPwexp); // inherited function to load JAGS objects
 
   insert(new PPwexp); // inherited function to load JAGS objects
+  insert(new DDPwexp); // inherited function to load JAGS objects
+  insert(new QPwexp); // inherited function to load JAGS objects
 }
 PWEXPModule::~PWEXPModule() {
   std::vector<Distribution*> const &dvec = distributions();

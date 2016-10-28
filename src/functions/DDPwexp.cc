@@ -1,5 +1,5 @@
 #include <config.h>
-#include "PPwexp.h"
+#include "DDPwexp.h"
 #include <cmath>
 
 using std::vector;
@@ -7,12 +7,12 @@ using std::vector;
 namespace jags{
 namespace pwexponential {
 
-    PPwexp::PPwexp ()
-      : ScalarVectorFunction ("ppwexp", 3)
+    DDPwexp::DDPwexp ()
+      : ScalarVectorFunction ("dpwexp", 3)
     {
     }
 
-    double PPwexp::scalarEval (std::vector<double const *> const &args,
+    double DDPwexp::scalarEval (std::vector<double const *> const &args,
                                std::vector<unsigned int> const &dims) const
     {
       double const * x = args[0];
@@ -28,25 +28,23 @@ namespace pwexponential {
 
       int n = size;
       for(int i=0; i < size; ++i) {
-          if(x[0] <= t[i]) {
-            n = i;
-            break;
-          }
+        if(x[0] <= t[i]) {
+          n = i;
+          break;
+        }
       }
 
       double summ = 0;
       if(n > 0) {
-          for(int i=0; i < (n-1); ++i) {
-            summ = summ + f[i] * dif[i];
-          }
+        for(int i=0; i < (n-1); ++i) {
+          summ = summ + f[i] * dif[i];
+        }
       }
 
-      double st = summ + f[n-1] * (x[0] - t[n-1]);
-
-      return 1 - exp(-st);
+      return f[n-1] * exp(-(summ + f[n-1] * (x[0] - t[n-1])));
     }
 
-    bool PPwexp::isScale(vector<bool> const &mask, vector<bool> const &fix) const
+    bool DDPwexp::isScale(vector<bool> const &mask, vector<bool> const &fix) const
     {
       return true;
     }

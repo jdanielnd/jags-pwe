@@ -1,5 +1,5 @@
-ppwexp_la-PPwexp.lo: PPwexp.cc /usr/include/stdc-predef.h ../../config.h \
- PPwexp.h /usr/include/JAGS/function/ScalarVectorFunction.h \
+dpwexp_la-DPwexp.lo: DPwexp.cc /usr/include/stdc-predef.h ../../config.h \
+ DPwexp.h /usr/include/JAGS/function/ScalarVectorFunction.h \
  /usr/include/JAGS/function/VectorFunction.h \
  /usr/include/JAGS/function/Function.h /usr/include/c++/4.8/string \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/c++config.h \
@@ -81,7 +81,7 @@ ppwexp_la-PPwexp.lo: PPwexp.cc /usr/include/stdc-predef.h ../../config.h \
 
 ../../config.h:
 
-PPwexp.h:
+DPwexp.h:
 
 /usr/include/JAGS/function/ScalarVectorFunction.h:
 

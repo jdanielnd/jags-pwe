@@ -9,6 +9,8 @@ pwexponential_la_CPPFLAGS = -I$(includedir)/JAGS
 
 pwexponential_la_LIBADD = distributions/pwexpdist.la
 pwexponential_la_LIBADD += functions/ppwexp.la
+pwexponential_la_LIBADD += functions/ddpwexp.la
+pwexponential_la_LIBADD += functions/qpwexp.la
 
 
 if WINDOWS

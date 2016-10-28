@@ -18,12 +18,13 @@ library(rjags)
 load.module("pwexponential")
 
 # model
+  	# x[i] ~ dunif(0, 1)
 mf <- textConnection("
 model {
   for (i in 1:N)
   {
     x[i] ~ dpwexp(rate[], grids[])
-    p.x[i] <- ppwexp(x[i], rate[], grids[])
+    p.x[i] <- dpwexp(x[i], rate[], grids[])
   }
   for (j in 1:M) {
     rate[j] ~ dgamma(1, 2)
@@ -66,5 +67,5 @@ j.samples <- coda.samples(j.model, params, n.iter=1000, thin=3)
 # plot(j.samples)
 
 pxs <- apply(j.samples[[1]][,1:1000],2,mean)
-xs <- ppexp(x, f, t)
+xs <- dpexp(x, f, t)
 plot(pxs, xs)
