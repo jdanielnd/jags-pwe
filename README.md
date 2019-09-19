@@ -1,6 +1,6 @@
-JAGS Bernoulli module
+JAGS Piecewise Exponential module
 ===================
-Provides Bernoulli distribution functions for JAGS.
+Provides Piecewise Exponential distribution functions for JAGS.
 
 License
 -------
